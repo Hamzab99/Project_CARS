@@ -1,20 +1,17 @@
 #!/bin/bash
-# startup.sh
-# Script de démarrage pour Azure Web App
-
 echo "==================================="
-echo "Starting EV Trip Planner on Azure"
+echo "Starting EV Trip Planner on Render"
 echo "==================================="
 
-# Démarrer le service SOAP en arrière-plan
+# Lancer le service SOAP
 echo "Starting SOAP service on port 8000..."
-python soap_service.py &
+python cars/soap_service.py &
 SOAP_PID=$!
 echo "SOAP service started with PID: $SOAP_PID"
 
-# Attendre que le service SOAP soit prêt
+# Attendre 5 secondes pour que SOAP démarre
 sleep 5
 
-# Démarrer l'application Flask principale
-echo "Starting Flask API on port 8080..."
-gunicorn --bind=0.0.0.0:8080 --timeout 600 --workers=2 app:app
+# Lancer Flask avec Gunicorn
+echo "Starting Flask API on port $PORT..."
+gunicorn --bind 0.0.0.0:$PORT --timeout 600 --workers=2 cars.app:app
