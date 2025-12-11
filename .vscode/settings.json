@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/054523a1-8ed7-4a57-9d6b-b01222289bb3/resourceGroups/Project_BEN/providers/Microsoft.Web/sites/BENhassine-APPweb",
+    "appService.deploySubpath": "cars"
+}
