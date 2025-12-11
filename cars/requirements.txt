@@ -4,7 +4,7 @@ spyne==2.13.16
 six==1.16.0
 
 # Service SOAP
-spyne==2.14.0
+#spyne==2.14.0
 lxml==5.3.0
 
 # Client SOAP
